@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 jobs:
-  upload:
+  android:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,3 +20,13 @@ jobs:
         with:
           api-key: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
           app-file: build/app/outputs/flutter-apk/app-debug.apk
+          device-locale: ja_JP
+          workspace: android/
+
+- name: Access Outputs
+  if: always()
+  run: |
+    echo "Console URL: ${{ steps.upload.outputs.MAESTRO_CLOUD_CONSOLE_URL }}"
+    echo "Flow Results: ${{ steps.upload.outputs.MAESTRO_CLOUD_FLOW_RESULTS }}"
+    echo "Upload Status: ${{ steps.upload.outputs.MAESTRO_CLOUD_UPLOAD_STATUS }}"
+    echo "App Binary ID:: ${{ steps.upload.outputs.MAESTRO_CLOUD_APP_BINARY_ID }}"
