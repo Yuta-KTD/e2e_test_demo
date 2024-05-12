@@ -1,0 +1,10 @@
+appId: com.example.e2e_test_demo
+---
+- tapOn: "メールアドレス入力"
+- inputText: "${USERNAME}"
+- tapOn: "パスワード入力"
+- inputText: "${PASSWORD}"
+- tapOn: "ログイン"
+- assertVisible: "ログインしました"
+- tapOn: "OK"
+- assertNotVisible: "ログインしました"

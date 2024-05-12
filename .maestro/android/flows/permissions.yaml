@@ -1,0 +1,8 @@
+appId: com.example.e2e_test_demo
+---
+- tapOn:
+    id: "com.android.permissioncontroller:id/permission_allow_foreground_only_button"
+- setLocation:
+    latitude: 52.3599976
+    longitude: 4.8830301
+- assertVisible: "現在地"

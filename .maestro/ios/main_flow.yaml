@@ -1,0 +1,14 @@
+appId: com.example.e2eTestDemo
+name: ios flow demo
+tags:
+  - ios
+env:
+    USERNAME: user@example.com
+    PASSWORD: pass123
+---
+- launchApp:
+    appId: "com.example.e2eTestDemo"
+    clearState: true
+    permissions: { all: unset }
+- runFlow: "flows/permissions.yaml"
+- runFlow: "flows/login.yaml"
