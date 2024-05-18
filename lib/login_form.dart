@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'map_screen.dart';
+
 class LoginForm extends HookConsumerWidget {
   const LoginForm({super.key});
   @override
@@ -35,38 +37,41 @@ class LoginForm extends HookConsumerWidget {
           ElevatedButton(
             child: const Text('ログイン'),
             onPressed: () => showDialog(
-                context: context,
-                builder: (_) {
-                  final isEntered = emailController.text.isNotEmpty &&
-                      passwordController.text.isNotEmpty;
-                  return SimpleDialog(
-                    title: Text(
-                      isEntered ? 'ログインしました' : 'メールアドレスとパスワードを入力してください',
-                      style: TextStyle(
-                          color: isEntered ? Colors.black : Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0),
-                    ),
-                    children: [
-                      SimpleDialogOption(
-                        child: const Text(
-                          'OK',
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.0),
-                        ),
-                        onPressed: () {
-                          if (isEntered) {
-                            emailController.clear();
-                            passwordController.clear();
-                          }
-                          Navigator.of(context).pop();
-                        },
+              context: context,
+              builder: (_) {
+                final isEntered = emailController.text.isNotEmpty &&
+                    passwordController.text.isNotEmpty;
+                return SimpleDialog(
+                  title: Text(
+                    isEntered ? 'ログインしました' : 'メールアドレスとパスワードを入力してください',
+                    style: TextStyle(
+                        color: isEntered ? Colors.black : Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0),
+                  ),
+                  children: [
+                    SimpleDialogOption(
+                      child: const Text(
+                        'OK',
+                        style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
                       ),
-                    ],
-                  );
-                }),
+                      onPressed: () {
+                        if (isEntered) {
+                          emailController.clear();
+                          passwordController.clear();
+                        }
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => const MapScreen(),
+                        ));
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
       ),

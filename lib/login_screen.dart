@@ -5,29 +5,27 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'location/location_provider.dart';
 import 'login_form.dart';
 
-class MyApp extends HookConsumerWidget {
-  const MyApp({super.key});
+class LoginScreen extends HookConsumerWidget {
+  const LoginScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final location = ref.watch(locationProvider);
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Location Permission Handler'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              switch (location) {
-                AsyncError(:final error) => Text('Error: $error'),
-                AsyncData(:final value) => CurrntLocationText(location: value),
-                _ => const CircularProgressIndicator(),
-              },
-              const SizedBox(height: 40),
-              const LoginForm()
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Location Permission Handler'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            switch (location) {
+              AsyncError(:final error) => Text('Error: $error'),
+              AsyncData(:final value) => CurrntLocationText(location: value),
+              _ => const CircularProgressIndicator(),
+            },
+            const SizedBox(height: 40),
+            const LoginForm()
+          ],
         ),
       ),
     );
