@@ -43,4 +43,4 @@ app.*.map.json
 /android/app/release
 
 # iOS
-+ **/ios/Flutter/Dart-Defines.xcconfig
+**/ios/Flutter/Dart-Defines.xcconfig
