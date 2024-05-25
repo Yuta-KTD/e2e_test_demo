@@ -35,6 +35,12 @@ target 'Runner' do
   target 'RunnerTests' do
     inherit! :search_paths
   end
+
+  # Do not change existing lines.
+
+  target 'RunnerUITests' do
+    inherit! :complete
+  end
 end
 
 post_install do |installer|

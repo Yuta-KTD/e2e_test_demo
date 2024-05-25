@@ -8,3 +8,4 @@ appId: com.example.e2eTestDemo
 - assertVisible: "ログインしました"
 - tapOn: "OK"
 - assertNotVisible: "ログインしました"
+- assertVisible: "Map Screen"

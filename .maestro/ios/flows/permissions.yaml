@@ -2,6 +2,6 @@ appId: com.example.e2eTestDemo
 ---
 - tapOn: "アプリの使用中は許可"
 - setLocation:
-    latitude: 52.3599976
-    longitude: 4.8830301
+    latitude: 35.665498
+    longitude: 139.75964
 - assertVisible: "現在地"

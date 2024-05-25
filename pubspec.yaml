@@ -22,10 +22,20 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter
 
   flutter_lints: ^3.0.0
   riverpod_generator: ^2.4.0
   riverpod_lint: ^2.3.10
+  patrol: ^3.6.1
 
 flutter:
   uses-material-design: true
+
+patrol:
+  app_name: e2e test demo
+  android:
+    package_name: com.example.e2e_test_demo
+  ios:
+    bundle_id: com.example.e2eTestDemo

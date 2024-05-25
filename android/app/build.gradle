@@ -12,6 +12,17 @@ if (localPropertiesFile.exists()) {
     }
 }
 
+def dartEnvironmentVariables = [:];
+if (project.hasProperty('dart-defines')) {
+    // カンマ区切りかつBase64でエンコードされている dart-defines をデコードして変数に格納します。
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+        .split(',')
+        .collectEntries { entry ->
+            def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+            [(pair.first()): pair.last()]
+        }x
+}
+
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
     flutterVersionCode = '1'
@@ -42,10 +53,13 @@ android {
 
     defaultConfig {
         applicationId "com.example.e2e_test_demo"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        testInstrumentationRunner "pl.leancode.patrol.PatrolJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: "true"
+        resValue "string", "googleMapApiKey", dartEnvironmentVariables['GOOGLE_MAPS_API_KEY']
     }
 
     buildTypes {
@@ -54,6 +68,14 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+        debug {
+            minifyEnabled false
+        }
+
+    }
+
+    testOptions {
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
     }
 }
 
@@ -61,4 +83,6 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    androidTestUtil "androidx.test:orchestrator:1.4.2"
+}
