@@ -20,7 +20,7 @@ class LoginScreen extends HookConsumerWidget {
           children: [
             switch (location) {
               AsyncError(:final error) => Text('Error: $error'),
-              AsyncData(:final value) => CurrntLocationText(location: value),
+              AsyncData(:final value) => _CurrntLocationText(location: value),
               _ => const CircularProgressIndicator(),
             },
             const SizedBox(height: 40),
@@ -32,9 +32,9 @@ class LoginScreen extends HookConsumerWidget {
   }
 }
 
-class CurrntLocationText extends StatelessWidget {
+class _CurrntLocationText extends StatelessWidget {
   final Position? location;
-  const CurrntLocationText({super.key, required this.location});
+  const _CurrntLocationText({super.key, required this.location});
   @override
   Widget build(BuildContext context) {
     return Column(

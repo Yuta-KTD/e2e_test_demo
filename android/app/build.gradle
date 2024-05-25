@@ -20,7 +20,7 @@ if (project.hasProperty('dart-defines')) {
         .collectEntries { entry ->
             def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
             [(pair.first()): pair.last()]
-        }x
+        }
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')

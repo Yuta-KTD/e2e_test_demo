@@ -3,7 +3,4 @@ appId: com.example.e2e_test_demo
 - tapOn:
     id: "com.android.permissioncontroller:id/permission_allow_foreground_only_button"
 - takeScreenshot: GetLocationPermission
-- setLocation:
-    latitude: 35.665498
-    longitude: 139.75964
 - assertVisible: "現在地"

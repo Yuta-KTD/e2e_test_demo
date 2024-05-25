@@ -10,6 +10,9 @@ env:
     appId: "com.example.e2e_test_demo"
     clearState: true
     permissions: { all: unset }
+- setLocation:
+    latitude: 35.665498
+    longitude: 139.75964
 - runFlow: "flows/permissions.yaml"
 - runFlow: "flows/login.yaml"
 - takeScreenshot: MapScreen
@@ -18,3 +21,4 @@ env:
       - 35.665498,139.75964
       - 35.681382,139.76608399999998
     speed: 79 # 7.9 km/s aka orbital velocity
+- tapOn: "My Location"
