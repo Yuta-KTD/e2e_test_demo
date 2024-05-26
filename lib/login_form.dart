@@ -63,6 +63,7 @@ class LoginForm extends HookConsumerWidget {
                           emailController.clear();
                           passwordController.clear();
                         }
+                        Navigator.of(context).pop();
                         Navigator.of(context).push(MaterialPageRoute(
                           builder: (_) => const MapScreen(),
                         ));
