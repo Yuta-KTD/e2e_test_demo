@@ -1,10 +1,18 @@
 appId: com.example.e2eTestDemo
 ---
-- takeScreenshot: MapScreen
+- launchApp:
+    appId: "com.example.e2eTestDemo"
+    clearState: true
+    permissions: { all: unset }
+- takeScreenshot: LaunchApp
 - travel:
     points: # set of lat/long coordinates where user motion should be mocked
       - 35.665498,139.75964
       - 35.681382,139.76608399999998
     speed: 79 # 7.9 km/s aka orbital velocity
+- setLocation:
+    latitude: 35.665498
+    longitude: 139.75964
+- runFlow: "flows/permissions.yaml"
 - tapOn:
     id: "my_location"
