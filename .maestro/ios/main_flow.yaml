@@ -6,6 +6,7 @@ env:
     USERNAME: user@example.com
     PASSWORD: pass123
 ---
+- startRecording: recording
 - launchApp:
     appId: "com.example.e2eTestDemo"
     clearState: true
@@ -23,3 +24,4 @@ env:
     speed: 79 # 7.9 km/s aka orbital velocity
 - tapOn:
     id: "my_location"
+- stopRecording
