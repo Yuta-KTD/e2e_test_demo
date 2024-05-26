@@ -1,5 +1,5 @@
 executionOrder:
     continueOnFailure: false
     flowsOrder:
-        - main_flow.yaml
-        - map_travel.yaml
+        - main_flow
+        - map_travel
