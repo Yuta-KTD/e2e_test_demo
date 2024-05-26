@@ -4,8 +4,11 @@ appId: com.example.e2eTestDemo
 - inputText: "${USERNAME}"
 - tapOn: "パスワード入力"
 - inputText: "${PASSWORD}"
+- takeScreenshot: InputCredentials
 - tapOn: "ログイン"
 - assertVisible: "ログインしました"
+- takeScreenshot: LoginSuccess
 - tapOn: "OK"
 - assertNotVisible: "ログインしました"
+- takeScreenshot: GoToMap
 - assertVisible: "Map Screen"

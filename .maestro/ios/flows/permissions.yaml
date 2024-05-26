@@ -1,4 +1,6 @@
 appId: com.example.e2eTestDemo
 ---
+- takeScreenshot: CheckLocationPermission
 - tapOn: "アプリの使用中は許可"
 - assertVisible: "現在地"
+- takeScreenshot: GetLocationPermission
