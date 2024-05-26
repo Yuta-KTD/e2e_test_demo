@@ -1,5 +1,5 @@
 executionOrder:
     continueOnFailure: false
     flowsOrder:
-        - main_flow
-        - map_travel
+        - .maestro/ios/main_flow
+        - .maestro/ios/map_travel
