@@ -1,5 +1,5 @@
 executionOrder:
     continueOnFailure: false
     flowsOrder:
-        - ios/main_flow
-        - ios/map_travel
+        - main_flow.yaml
+        - map_travel.yaml
