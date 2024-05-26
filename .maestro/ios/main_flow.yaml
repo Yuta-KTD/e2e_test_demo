@@ -1,5 +1,5 @@
 appId: com.example.e2eTestDemo
-name: ios flow demo
+name: iosMainFlow
 tags:
   - ios
 env:
