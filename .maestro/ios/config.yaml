@@ -1,5 +1,0 @@
-executionOrder:
-    continueOnFailure: false
-    flowsOrder:
-        - main_flow
-        - map_travel
